@@ -104,7 +104,7 @@ class I18nRouter extends Router
     public function generate($name, $parameters = array(), $absolute = false)
     {
         // determine the most suitable locale to use for route generation
-        $currentLocale = $this->context->getParameter('_locale');
+        $currentLocale = $this->container->get('request')->get('_locale');
         if (isset($parameters['_locale'])) {
             $locale = $parameters['_locale'];
         } else if ($currentLocale) {
